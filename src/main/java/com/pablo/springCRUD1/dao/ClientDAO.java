@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ClientDAO {
     void addClient(Client c);
-    void updateEmployee(Client c);
+    void updateClinet(Client c);
     List<Client> listClient();
     Client getClinetById(int id);
     void removeClinet(int id);
