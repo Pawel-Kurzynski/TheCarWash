@@ -25,7 +25,7 @@ public class EmployeeControler {
         this.employeeService = employeeService;
     }
 
-    @RequestMapping(value = "/employees", method = RequestMethod.GET)
+    @RequestMapping(value = "/employee", method = RequestMethod.GET)
     public String employeeList(Model model) {
         model.addAttribute("employee", new Employee());
         model.addAttribute("listEmployee", this.employeeService.listEmployee());
@@ -43,7 +43,7 @@ public class EmployeeControler {
             //existing employee, call update
             this.employeeService.updateEmployee(e);
         }
-        return "redirect:/employees";
+        return "redirect:/employee";
     }
 
     @RequestMapping(value = "employees/remove/{id}")
