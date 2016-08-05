@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,9 +14,10 @@ import java.util.List;
  * Created by Pablo on 03.08.2016.
  */
 @Repository
-public class EmployeeDAOimpl implements EmployeeDAO {
+@Qualifier(value = "employeeDAO")
+public class EmployeeDAOImpl implements EmployeeDAO {
 
-    private static final Logger logger = LoggerFactory.getLogger(EmployeeDAOimpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(EmployeeDAOImpl.class);
 
     private SessionFactory sessionFactory;
 
@@ -37,7 +39,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
     @Override
     public List<Employee> listEmployee() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Employee> employeeList = session.createQuery("from Preson").list();
+        List<Employee> employeeList = session.createQuery("from Employees").list();
         for (Employee e: employeeList){
             logger.info("Employee List::" + e);
         }
@@ -61,4 +63,9 @@ public class EmployeeDAOimpl implements EmployeeDAO {
         }
         logger.info("Employee delete successfully, Employee details: " + e);
     }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
 }
