@@ -15,28 +15,29 @@ import com.pablo.springCRUD1.service.EmployeeService;
  * Created by Pablo on 03.08.2016.
  */
 @Controller
-public class EmployeeControler {
+public class EmployeeController {
 
     private EmployeeService employeeService;
 
     @Autowired(required = true)
     @Qualifier("employeeService")
     public void setEmployeeService(EmployeeService employeeService) {
+
         this.employeeService = employeeService;
     }
 
     @RequestMapping(value = "/employee", method = RequestMethod.GET)
     public String employeeList(Model model) {
         model.addAttribute("employee", new Employee());
-        model.addAttribute("listEmployee", this.employeeService.listEmployee());
+        model.addAttribute("listEmployees", this.employeeService.listEmployee());
         return "employee";
     }
 
     //For add and update person both
     @RequestMapping(value = "/employee/add", method = RequestMethod.POST)
-    public String addEmployee(@ModelAttribute("person") Employee e){
+    public String addEmployee(@ModelAttribute("employee") Employee e){
 
-        if (e.getEmployeeID() == 0){
+        if (e.getId() == 0){
             //new employee, add it
             this.employeeService.addEmployee(e);
         }else {
@@ -46,18 +47,22 @@ public class EmployeeControler {
         return "redirect:/employee";
     }
 
-    @RequestMapping(value = "employees/remove/{id}")
+    @RequestMapping(value = "/remove/{id}")
     public String removeEmployee(@PathVariable("id") int id){
 
         this.employeeService.removeEmployee(id);
-        return "redirect:/employees";
+        return "redirect:/employee";
     }
 
-    @RequestMapping(value = "/employees/edit{id}")
+    @RequestMapping(value = "/edit/{id}")
     public String editEmployee(@PathVariable("id") int id, Model model){
 
         model.addAttribute("employee", this.employeeService.getEmployeeById(id));
         model.addAttribute("listEmployees", this.employeeService.listEmployee());
         return "employee";
+    }
+    @ModelAttribute("employee")
+    public Employee loadEmptyModelBean(){
+        return new Employee();
     }
 }

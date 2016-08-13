@@ -41,9 +41,10 @@ public class HomeController {
     public String loginPage(Locale locale, Model model){
         return "login";
     }
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String login(@Validated Employee employee, Model model) {
         model.addAttribute("userName", employee.getName());
-        return "employee";
+        return "user";
     }
 }

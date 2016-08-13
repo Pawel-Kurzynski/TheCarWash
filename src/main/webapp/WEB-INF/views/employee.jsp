@@ -19,7 +19,7 @@
 
 <c:url var="addAction" value="/employee/add" ></c:url>
 
-<form:form action="${addAction}" commandName="employee">
+<form:form action="${addAction}" modelAttribute="employee">
     <table>
         <c:if test="${!empty employee.name}">
             <tr>
@@ -59,7 +59,7 @@
     </table>
 </form:form>
 <br>
-<h3>Persons List</h3>
+<h3>List of Employees</h3>
 <c:if test="${!empty listEmployees}">
     <table class="tg">
         <tr>

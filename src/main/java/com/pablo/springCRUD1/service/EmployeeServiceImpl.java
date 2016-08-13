@@ -13,18 +13,13 @@ import java.util.List;
  * Created by Pablo on 03.08.2016.
  */
 @Service
-//@Qualifier(value = "employeeService")
 public class EmployeeServiceImpl implements EmployeeService{
 
 
-
-    public EmployeeServiceImpl() {
-    }
-
     private EmployeeDAO employeeDAO;
 
-    public EmployeeServiceImpl(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public void setEmployeeDAO(EmployeeDAO employeeDAO){
+        this.employeeDAO=employeeDAO;
     }
 
     @Override
@@ -56,10 +51,4 @@ public class EmployeeServiceImpl implements EmployeeService{
     public void removeEmployee(int id) {
         this.employeeDAO.removeEmployee(id);
     }
-
-    public void setEmployeeDAO(EmployeeDAOImpl employeeDAO) {
-        this.employeeDAO = employeeDAO;
-    }
-
-
 }

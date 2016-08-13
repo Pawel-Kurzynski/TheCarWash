@@ -5,40 +5,40 @@ import javax.persistence.*;
 /**
  * Entity bean with JPA annotations
  * Hibernate provides JPA implementation
- *
  */
 
 @Entity
-@Table(name = "Employees")
+@Table(name = "Employee")
 public class Employee {
-    @Column(name="Name")
+    @Column(name = "name")
     private String name;
 
     @Id
-    @Column(name="Employee ID")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int employeeID;
-
-    public Employee(String name) {
-        this.name = name;
-    }
-
-    public Employee() {
-    }
-
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
-    }
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     public String getName() {
         return name;
     }
 
-    public int getEmployeeID() {
-        return employeeID;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
