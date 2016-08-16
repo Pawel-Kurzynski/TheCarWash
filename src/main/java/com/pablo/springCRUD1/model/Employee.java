@@ -8,15 +8,18 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "Employee")
+@Table(name = "Employees")
 public class Employee {
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", length = 30)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(length =20)
+    private double salary;
 
     public String getName() {
         return name;
@@ -40,5 +43,13 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 }

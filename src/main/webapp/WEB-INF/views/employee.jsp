@@ -45,6 +45,16 @@
             </td>
         </tr>
         <tr>
+            <td>
+                <form:label path="salary">
+                    <spring:message text="Salary"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="salary" />
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <c:if test="${!empty employee.name}">
                     <input type="submit"
@@ -65,6 +75,7 @@
         <tr>
             <th width="80">Employee ID</th>
             <th width="120">Employee Name</th>
+            <th width="100">Salary</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
@@ -72,6 +83,7 @@
             <tr>
                 <td>${employee.id}</td>
                 <td>${employee.name}</td>
+                <td>${employee.salary}</td>
                 <td><a href="<c:url value='/edit/${employee.id}' />" >Edit</a></td>
                 <td><a href="<c:url value='/remove/${employee.id}' />" >Delete</a></td>
             </tr>
