@@ -1,13 +1,13 @@
-package com.pablo.springCRUD1.dao;
+package com.pablo.springCRUD1.service;
 
 import com.pablo.springCRUD1.model.Client;
 
 import java.util.List;
 
 /**
- * Created by Pablo on 30.07.2016.
+ * Created by Pablo on 17.08.2016.
  */
-public interface ClientDAO {
+public interface ClientService {
     void addClient(Client c);
     void updateClient(Client c);
     List<Client> listClient();

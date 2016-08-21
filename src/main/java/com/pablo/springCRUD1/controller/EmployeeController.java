@@ -15,6 +15,7 @@ import com.pablo.springCRUD1.service.EmployeeService;
  * Created by Pablo on 03.08.2016.
  */
 @Controller
+@RequestMapping("employee")
 public class EmployeeController {
 
     private EmployeeService employeeService;
@@ -26,7 +27,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @RequestMapping(value = "/employee", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String employeeList(Model model) {
         model.addAttribute("employee", new Employee());
         model.addAttribute("listEmployees", this.employeeService.listEmployee());
@@ -34,7 +35,7 @@ public class EmployeeController {
     }
 
     //For add and update person both
-    @RequestMapping(value = "/employee/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addEmployee(@ModelAttribute("employee") Employee e){
 
         if (e.getId() == 0){

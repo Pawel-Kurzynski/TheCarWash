@@ -68,6 +68,8 @@
         </tr>
     </table>
 </form:form>
+
+
 <br>
 <h3>List of Employees</h3>
 <c:if test="${!empty listEmployees}">
@@ -84,8 +86,8 @@
                 <td>${employee.id}</td>
                 <td>${employee.name}</td>
                 <td>${employee.salary}</td>
-                <td><a href="<c:url value='/edit/${employee.id}' />" >Edit</a></td>
-                <td><a href="<c:url value='/remove/${employee.id}' />" >Delete</a></td>
+                <td><a href="<c:url value='/employee/edit/${employee.id}' />" >Edit</a></td>
+                <td><a href="<c:url value='/employee/remove/${employee.id}' />" >Delete</a></td>
             </tr>
         </c:forEach>
     </table>

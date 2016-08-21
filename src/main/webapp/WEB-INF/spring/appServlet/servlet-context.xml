@@ -58,6 +58,22 @@
         <beans:property name="employeeDAO" ref="employeeDAO"/>
     </beans:bean>
 
+    <beans:bean id="carDAO" class="com.pablo.springCRUD1.dao.CarDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+
+    <beans:bean id="carService" class="com.pablo.springCRUD1.service.CarServiceImpl">
+        <beans:property name="carDAO" ref="carDAO"/>
+    </beans:bean>
+
+    <beans:bean id="clientDAO" class="com.pablo.springCRUD1.dao.ClientDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+
+    <beans:bean id="clientService" class="com.pablo.springCRUD1.service.ClientServiceImpl">
+        <beans:property name="clientDAO" ref="clientDAO"/>
+    </beans:bean>
+
     <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>

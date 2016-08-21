@@ -16,12 +16,11 @@ import java.util.List;
 public class EmployeeDAOImpl implements EmployeeDAO {
 
     private static final Logger logger = LoggerFactory.getLogger(EmployeeDAOImpl.class);
-
     private SessionFactory sessionFactory;
-
     public void setSessionFactory(SessionFactory sf){
         this.sessionFactory = sf;
     }
+
     @Override
     public void addEmployee(Employee e) {
         Session session = this.sessionFactory.getCurrentSession();
