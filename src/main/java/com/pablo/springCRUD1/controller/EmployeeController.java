@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import com.pablo.springCRUD1.service.EmployeeService;
 
 /**
@@ -62,6 +59,14 @@ public class EmployeeController {
         model.addAttribute("listEmployees", this.employeeService.listEmployee());
         return "employee";
     }
+
+    @RequestMapping(value = "/search")
+    public String findEmployeeByName(@RequestParam("name")String name, Model model){
+
+        model.addAttribute("listEmployees", this.employeeService.getEmployeeByName(name));
+        return "employee";
+    }
+
     @ModelAttribute("employee")
     public Employee loadEmptyModelBean(){
         return new Employee();

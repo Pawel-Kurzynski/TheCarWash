@@ -14,8 +14,8 @@ public class Car {
     @Column(name = "ID")
     private int id;
 
-    @OneToOne
-    @Column(name = "Client")
+    @OneToOne(mappedBy = "car")
+    @JoinColumn(name = "Client ID")
     private Client client;
 
     @Column(name = "Model")
@@ -29,6 +29,10 @@ public class Car {
 
     @Column(name = "Waxing")
     private boolean waxing = false;
+
+    public int getId() {
+        return id;
+    }
 
     public String getModel() {
         return model;
@@ -62,14 +66,11 @@ public class Car {
         this.waxing = waxing;
     }
 
-    @Override
-    public String toString() {
-        return "Car's details{" +
-                "client=" + client +
-                ", model='" + model + '\'' +
-                ", width=" + width +
-                ", high=" + high +
-                ", waxing=" + waxing +
-                '}';
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

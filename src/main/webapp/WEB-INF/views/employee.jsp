@@ -14,7 +14,7 @@
 </head>
 <body>
 <h1>
-    Add a Employee
+    Add an Employee
 </h1>
 
 <c:url var="addAction" value="/employee/add" ></c:url>
@@ -69,6 +69,34 @@
     </table>
 </form:form>
 
+<h1>
+    Search for Employee by name
+</h1>
+<%--action='/employee/${name}'--%>
+<form:form action="employee/search/${name}"  method="GET" modelAttribute="employee">
+        <table>
+        <c:if test="${empty employee.name}">
+            <tr>
+                <td>
+                    <form:label path="name">
+                        <spring:message text="Name"/>
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="name" />
+                </td>
+            </tr>
+        </c:if>
+        <tr>
+            <td colspan="2">
+                <c:if test="${empty employee.name}">
+                    <input type="submit"
+                           value="<spring:message text="Search Employee"/>" />
+                </c:if>
+            </td>
+        </tr>
+    </table>
+</form:form>
 
 <br>
 <h3>List of Employees</h3>

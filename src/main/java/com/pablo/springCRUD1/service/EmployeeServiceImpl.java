@@ -48,6 +48,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     @Transactional
+    public List<Employee> getEmployeeByName(String name) {
+        return this.employeeDAO.getEmployeeByName(name);
+    }
+
+    @Override
+    @Transactional
     public void removeEmployee(int id) {
         this.employeeDAO.removeEmployee(id);
     }

@@ -63,4 +63,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
         logger.info("Employee delete successfully, Employee details: " + e);
     }
+
+    @SuppressWarnings("uncheked")
+    @Override
+    public List<Employee> getEmployeeByName(String name) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Employee> employeeList = session.createQuery("FROM Employee WHERE Employee.name='?'").setParameter(0, name).list();
+        for (Employee e: employeeList){
+            logger.info("Employees List::" + e);
+        }
+        return employeeList;
+    }
 }
