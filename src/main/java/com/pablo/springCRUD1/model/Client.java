@@ -1,33 +1,83 @@
 package com.pablo.springCRUD1.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Pablo on 30.07.2016.
  */
+@Entity
 public class Client {
 
     @Id
     @Column(name = "ID")
     @GeneratedValue
-    private long id;
+    private int id;
 
 
-    @Column(name = "First Name", nullable = false)
+    @Column
     private String firstName;
 
-    @Column(name = "Last Name", nullable = false)
+    @Column
     private String lastName;
 
-    @Column(name = "Address")
+    @OneToOne
+    @JoinColumn(name = "address")
     private Address address;
 
-    @Column(name = "Car")
+    @Column
     @OneToMany
-    private Car car;
+    @JoinColumn(name = "id")
+    private List<Car> cars;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", cars=" + cars +
+                ", address=" + address +
+                '}';
+    }
 }

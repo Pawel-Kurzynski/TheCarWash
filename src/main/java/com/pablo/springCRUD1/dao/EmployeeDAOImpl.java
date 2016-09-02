@@ -68,7 +68,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public List<Employee> getEmployeeByName(String name) {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Employee> employeeList = session.createQuery("FROM Employee WHERE Employee.name='?'").setParameter(0, name).list();
+        List<Employee> employeeList = session
+                .createQuery("FROM Employee WHERE name='" + name +"'")
+                .list();
         for (Employee e: employeeList){
             logger.info("Employees List::" + e);
         }

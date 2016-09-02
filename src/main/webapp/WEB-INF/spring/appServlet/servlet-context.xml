@@ -38,18 +38,32 @@
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
             <beans:list>
+                <beans:value>com.pablo.springCRUD1.model.Client</beans:value>
+                <beans:value>com.pablo.springCRUD1.model.Address</beans:value>
+                <beans:value>com.pablo.springCRUD1.model.Car</beans:value>
                 <beans:value>com.pablo.springCRUD1.model.Employee</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
             <beans:props>
                 <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</beans:prop>
-                <beans:prop key="hibernate.hbm2ddl.auto">true</beans:prop>
                 <beans:prop key="hibernate.show_sql">true</beans:prop>
+                <beans:prop key="hibernate.ddl-auto=create-drop">true</beans:prop>
             </beans:props>
         </beans:property>
     </beans:bean>
 
+    <!--Models mapping-->
+    <!--AddressDAO bean-->
+    <beans:bean id="addressDAO" class="com.pablo.springCRUD1.dao.AddressDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+
+    <beans:bean id="addressService" class="com.pablo.springCRUD1.service.AddressServiceImpl">
+        <beans:property name="addressDAO" ref="addressDAO"/>
+    </beans:bean>
+
+    <!--Employee bean-->
     <beans:bean id="employeeDAO" class="com.pablo.springCRUD1.dao.EmployeeDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
@@ -58,6 +72,7 @@
         <beans:property name="employeeDAO" ref="employeeDAO"/>
     </beans:bean>
 
+    <!--Car bean-->
     <beans:bean id="carDAO" class="com.pablo.springCRUD1.dao.CarDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
@@ -66,6 +81,7 @@
         <beans:property name="carDAO" ref="carDAO"/>
     </beans:bean>
 
+    <!--Client bean-->
     <beans:bean id="clientDAO" class="com.pablo.springCRUD1.dao.ClientDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
@@ -74,6 +90,7 @@
         <beans:property name="clientDAO" ref="clientDAO"/>
     </beans:bean>
 
+    <!--Transaction Manager bean-->
     <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>

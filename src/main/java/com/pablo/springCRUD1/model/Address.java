@@ -1,24 +1,31 @@
 package com.pablo.springCRUD1.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Pablo on 25.08.2016.
  */
+@Entity
 public class Address {
 
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
 
     private String locality;
     private String zipCode;
     private String street;
     private String streetNumber;
 
-    public long getId() {
+    @OneToOne(mappedBy = "address")
+    private Client client;
+
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocality() {
@@ -51,5 +58,24 @@ public class Address {
 
     public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    @Override
+    public String toString() {
+        return "AddressDAO{" +
+                "id=" + id +
+                ", locality='" + locality + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", street='" + street + '\'' +
+                ", streetNumber='" + streetNumber + '\'' +
+                '}';
     }
 }

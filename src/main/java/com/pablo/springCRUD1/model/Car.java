@@ -1,37 +1,45 @@
 package com.pablo.springCRUD1.model;
 
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 /**
  * Created by Pablo on 30.07.2016.
  */
 @Entity
-@Table(name = "Cars")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
     private int id;
 
-    @OneToOne(mappedBy = "car")
-    @JoinColumn(name = "Client ID")
+    @ManyToOne
+    @JoinColumn(name = "client")
     private Client client;
 
-    @Column(name = "Model")
+    @Column
     private String model;
 
-    @Column(name = "CarWidth")
+    @Column
     private double width;
 
-    @Column(name = "CarHigh")
+    @Column
     private double high;
 
-    @Column(name = "Waxing")
+    @Column
     private boolean waxing = false;
+
+    @Column
+    @NotNull
+    private String plateNumber;
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getModel() {
@@ -72,5 +80,26 @@ public class Car {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+//                ", client=" + client +
+                ", model='" + model + '\'' +
+                ", width=" + width +
+                ", high=" + high +
+                ", waxing=" + waxing +
+                ", plateNumber='" + plateNumber + '\'' +
+                '}';
     }
 }

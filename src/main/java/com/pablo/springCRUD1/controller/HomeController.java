@@ -42,9 +42,4 @@ public class HomeController {
         return "login";
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String login(@Validated Employee employee, Model model) {
-        model.addAttribute("userName", employee.getName());
-        return "user";
-    }
 }

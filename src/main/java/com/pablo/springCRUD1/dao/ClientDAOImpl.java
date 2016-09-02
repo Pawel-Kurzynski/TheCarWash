@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class ClientDAOImpl implements ClientDAO{
 
-    private static final Logger logger = LoggerFactory.getLogger(EmployeeDAOImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ClientDAOImpl.class);
     private SessionFactory sessionFactory;
     public void setSessionFactory(SessionFactory sf){
         this.sessionFactory = sf;

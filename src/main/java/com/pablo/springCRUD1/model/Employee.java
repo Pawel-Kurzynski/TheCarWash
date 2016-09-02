@@ -1,5 +1,7 @@
 package com.pablo.springCRUD1.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 /**
@@ -10,24 +12,24 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Employee")
 public class Employee {
-    @Column(name = "name",nullable = false)
-    private String name;
 
     @Id
     @Column(name = "id", length = 30)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
+    @Column(name = "lastName")
+    private String firstName;
+
+    @NotNull
+    @Column(name = "firstName")
+    private String lastName;
+
     @Column(length =20)
     private double salary;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    private Address address;
 
     public int getId() {
         return id;
@@ -37,12 +39,20 @@ public class Employee {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                '}';
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public double getSalary() {
@@ -51,5 +61,24 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salary=" + salary +
+//                ", address=" + address +
+                '}';
     }
 }
