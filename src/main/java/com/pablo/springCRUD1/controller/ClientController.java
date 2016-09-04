@@ -64,7 +64,7 @@ public class ClientController {
         return "redirect:/client";
     }
 
-    @RequestMapping(value = "edit/{id}")
+    @RequestMapping(value = "/edit/{id}")
     public String editClient(@PathVariable("id")int id, Model model){
 
         model.addAttribute("client", this.clientService.getClientById(id));
@@ -77,10 +77,10 @@ public class ClientController {
         return new Client();
     }
 
-    @RequestMapping(value = "address/{id}")
+    @RequestMapping(value = "address/{id}",method = RequestMethod.GET)
     public String addressClient(@PathVariable("id")int id, Model model){
 
-        model.addAttribute("Address", this.addressService.listAddress(id));
-        return "client";
+        model.addAttribute("address", this.addressService.getAddressById(id));
+        return "address";
     }
 }

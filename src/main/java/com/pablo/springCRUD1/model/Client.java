@@ -15,10 +15,10 @@ public class Client {
     private int id;
 
 
-    @Column
+    @Column(nullable = false)
     private String firstName;
 
-    @Column
+    @Column(nullable = false)
     private String lastName;
 
     @OneToOne

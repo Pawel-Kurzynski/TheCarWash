@@ -82,7 +82,8 @@
 <h1>
     Search for Employee by name
 </h1>
-<form:form action="employee/search/${firstName}/${lastName}"  method="GET" modelAttribute="employee">
+
+<form:form action="employee/search/${firstName}/${lastName}" modelAttribute="employee">
         <table>
         <c:if test="${empty employee.firstName}">
             <tr>

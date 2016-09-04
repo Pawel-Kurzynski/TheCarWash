@@ -80,12 +80,12 @@
     <th width="120">Street</th>
     <th width="100">Street Number</th>
     </tr>
-    <c:forEach items="${listaddress}" var="client">
+    <c:forEach items="${listAddress}" var="client">
         <tr>
-            <td>${address.id}</td>
-            <td>${address.locality}</td>
-            <td>${address.street}</td>
-            <td>${address.streetNumber}</td>
+            <td>${clinet.address.id}</td>
+            <td>${client.address.locality}</td>
+            <td>${client.address.street}</td>
+            <td>${client.address.streetNumber}</td>
         </tr>
     </c:forEach>
     </table>

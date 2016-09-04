@@ -29,16 +29,19 @@ public class AddressServiceImpl implements AddressService {
         this.updateCar(a);
     }
 
+    @Transactional
     @Override
     public List<Address> listAddress() {
         return this.addressDAO.listAddress();
     }
 
+    @Transactional
     @Override
     public Address getAddressById(int id) {
-        return this.getAddressById(id);
+        return this.addressDAO.getAddressById(id);
     }
 
+    @Transactional
     @Override
     public void removeAddress(int id) {
         this.addressDAO.removeAddress(id);
