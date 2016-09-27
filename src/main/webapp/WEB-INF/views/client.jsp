@@ -12,61 +12,42 @@
 <html>
 <head>
     <title>Client page</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/style.css">
     <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
-        }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+        .tg .tg-4eph{background-color:#f9f9f9}
     </style>
 </head>
 <body>
+<jsp:include page="myHeader.jsp"/>
+
 <h1>
-    Add a new Car
+    Add a new Client
 </h1>
-<c:url var="addAction" value="client/add"></c:url>
+<c:url var="addAction" value="${pageContext.request.contextPath}/client/add"></c:url>
 
 <form:form action="${addAction}" modelAttribute="client">
 
     <table>
-        <c:if test="${!empty client.lastName}">
+        <c:if test="${!empty client.lastName|| !empty client.firstName}">
+            <tr>
+                <td>
+                    <form:label path="address.id">
+                        <spring:message text="Address ID"/>
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="address.id" readonly="true" size="8" disabled="true"/>
+                    <form:hidden path="address.id"/>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <form:label path="id">
                         <spring:message text="ID"/>
                     </form:label>
-
                 </td>
                 <td>
                     <form:input path="id" readonly="true" size="8" disabled="true"/>
@@ -76,6 +57,7 @@
         </c:if>
         <tr>
             <td>
+
                 <form:label path="firstName">
                     <spring:message text="First Name"/>
                 </form:label>
@@ -94,20 +76,21 @@
                 <form:input path="lastName"/>
             </td>
         </tr>
-        <td colspan="2">
-            <c:if test="${!empty client.lastName}">
-                <input type="submit"
-                       value="<spring:message text="Edit Client"/>"/>
-            </c:if>
-            <c:if test="${empty client.lastName}">
-                <input type="submit"
-                       value="<spring:message text="Add Client"/>"/>
-            </c:if>
-        </td>
+        <tr>
+            <td colspan="2">
+                <c:if test="${!empty client.lastName|| !empty client.firstName}">
+                    <input type="submit"
+                           value="<spring:message text="Edit Client"/>"/>
+                </c:if>
+                <c:if test="${empty client.lastName && empty client.firstName}">
+                    <input type="submit"
+                           value="<spring:message text="Add Client"/>"/>
+                </c:if>
+            </td>
         </tr>
-
     </table>
 </form:form>
+
 <br>
 <c:if test="${!empty listClients}">
     <h3>List of CLIENTS</h3>
@@ -126,14 +109,16 @@
                 <td>${client.id}</td>
                 <td>${client.firstName}</td>
                 <td>${client.lastName}</td>
-                <td><a href="<c:url value='/client/address/${client.id}' />">Address</a></td>
-                <td><a href="<c:url value='/client/cars/${client.id}' />">List of Cars</a></td>
+                <td><a href="<c:url value='/client/address/${client.address.id}' />">Address</a></td>
+                <td><a href="<c:url value='${pageContext.request.contextPath}/client/carlist/${client.id}' />">List of Cars</a></td>
                 <td><a href="<c:url value='/client/edit/${client.id}' />">Edit</a></td>
                 <td><a href="<c:url value='/client/remove/${client.id}' />">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
 </c:if>
+
+<jsp:include page="myFooter.jsp"/>
 </body>
 </html>
 

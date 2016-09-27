@@ -1,5 +1,6 @@
 package com.pablo.springCRUD1.dao;
 
+import com.pablo.springCRUD1.model.Address;
 import com.pablo.springCRUD1.model.Client;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,13 +24,17 @@ public class ClientDAOImpl implements ClientDAO{
     public void addClient(Client c) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(c);
+        Address address = new Address(null, null, null, null, c);
+        session.persist(address);
+        c.setAddress(address);
         logger.info("Client saved successfully, Client details: " + c);
     }
 
     @Override
     public void updateClient(Client c) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(c);
+
+        session.update(c);
         logger.info("Client updated successfully, Client details: " + c);
     }
 

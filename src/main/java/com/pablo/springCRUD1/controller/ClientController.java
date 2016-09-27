@@ -1,5 +1,7 @@
 package com.pablo.springCRUD1.controller;
 
+import com.pablo.springCRUD1.model.Address;
+import com.pablo.springCRUD1.model.Car;
 import com.pablo.springCRUD1.model.Client;
 import com.pablo.springCRUD1.service.AddressService;
 import com.pablo.springCRUD1.service.CarService;
@@ -38,7 +40,10 @@ public class ClientController {
         this.carService = carService;
     }
 
-
+    @ModelAttribute("client")
+    public Client loadEmptyModelBean(){
+        return new Client();
+    }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String clientList(Model model){
@@ -72,15 +77,56 @@ public class ClientController {
 
         return "client";
     }
-    @ModelAttribute("client")
-    public Client loadEmptyModelBean(){
-        return new Client();
-    }
 
+    //address
+    //take address matching by client id
     @RequestMapping(value = "address/{id}",method = RequestMethod.GET)
     public String addressClient(@PathVariable("id")int id, Model model){
 
         model.addAttribute("address", this.addressService.getAddressById(id));
         return "address";
+    }
+
+    //editing existing address
+    @RequestMapping(value = "/address/add", method = RequestMethod.POST)
+    public String addAddress(@ModelAttribute("address")Address a){
+
+        if (a.getId()==0){
+            this.addressService.addAddress(a);
+        }
+        else {
+            this.addressService.updateAddress(a);
+        }
+        return "address";
+    }
+    @RequestMapping(value = "/carlist/add", method = RequestMethod.POST)
+    public String addCar(@ModelAttribute("car")Car car,@ModelAttribute("client")Client client){
+
+        if (car.getId()==0){
+            this.carService.addCar(car, client);
+        }
+        else {
+            this.carService.updateCar(car);
+        }
+
+        return "redirect:/car";
+    }
+    @RequestMapping(value = "carlist/{id}",method = RequestMethod.GET)
+    public String carList(@PathVariable("id")int clientID, Model model){
+
+        model.addAttribute("car", new Car());
+        model.addAttribute("client", this.clientService.getClientById(clientID));
+        model.addAttribute("carList", this.carService.listCars(clientID));
+        return "car";
+    }
+
+    @RequestMapping(value = "carlist/{clientId}/edit/{carId}",method = RequestMethod.GET)
+    public String editCar(@PathVariable("clientId")int clientID,
+                          @PathVariable("carId")int carID,
+                          Model model){
+        model.addAttribute("client", this.clientService.getClientById(clientID));
+        model.addAttribute("carList", this.carService.listCars(clientID));
+        model.addAttribute("car", this.carService.listCars(clientID).get(carID));
+        return "car";
     }
 }

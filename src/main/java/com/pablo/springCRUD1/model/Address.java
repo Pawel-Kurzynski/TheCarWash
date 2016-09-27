@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class Address {
 
     @Id
+    @Column(name = "ID")
     @GeneratedValue
     private int id;
 
@@ -18,7 +19,19 @@ public class Address {
     private String streetNumber;
 
     @OneToOne(mappedBy = "address")
+    @JoinColumn(name = "clientId")
     private Client client;
+
+    public Address() {
+    }
+
+    public Address(String locality, String zipCode, String street, String streetNumber, Client client) {
+        this.locality = locality;
+        this.zipCode = zipCode;
+        this.street = street;
+        this.streetNumber = streetNumber;
+        this.client = client;
+    }
 
     public int getId() {
         return id;
@@ -70,12 +83,13 @@ public class Address {
 
     @Override
     public String toString() {
-        return "AddressDAO{" +
+        return "Address{" +
                 "id=" + id +
                 ", locality='" + locality + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", street='" + street + '\'' +
                 ", streetNumber='" + streetNumber + '\'' +
+//                ", client_ID=" + client.getId() +
                 '}';
     }
 }

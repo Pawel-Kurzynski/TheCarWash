@@ -20,8 +20,8 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
-    public void addCar(Car c) {
-        this.carDAO.addCar(c);
+    public void addCar(Car car, Client client) {
+        this.carDAO.addCar(car, client);
     }
 
     @Override
@@ -32,8 +32,8 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
-    public List<Car> listCars() {
-        return this.carDAO.listCars();
+    public List<Car> listCars(int clientID) {
+        return this.carDAO.listCars(clientID);
     }
 
     @Override

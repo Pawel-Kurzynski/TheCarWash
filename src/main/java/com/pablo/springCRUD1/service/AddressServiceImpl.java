@@ -25,8 +25,8 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     @Transactional
-    public void updateCar(Address a) {
-        this.updateCar(a);
+    public void updateAddress(Address a) {
+        this.addressDAO.updateAddress(a);
     }
 
     @Transactional

@@ -21,10 +21,11 @@ public class CarDAOImpl implements CarDAO{
     }
 
     @Override
-    public void addCar(Car c) {
+    public void addCar(Car car, Client client) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(c);
-        logger.info("Car saved successfully, Car details: " + c);
+        car.setClient(client);
+        session.persist(car);
+        logger.info("Car saved successfully, Car details: " + car);
     }
 
     @Override
@@ -35,9 +36,10 @@ public class CarDAOImpl implements CarDAO{
     }
 
     @Override
-    public List<Car> listCars() {
+    public List<Car> listCars(int clientID) {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Car> carList = session.createQuery("from Car").list();
+        List<Car> carList = session.createQuery(
+                "from Car where clientId = " + clientID).list();
         for (Car c: carList){
             logger.info("Car List:: " + c);
         }

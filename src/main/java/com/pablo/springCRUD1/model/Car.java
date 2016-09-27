@@ -2,6 +2,7 @@ package com.pablo.springCRUD1.model;
 
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.ForeignKey;
 
 import javax.persistence.*;
 
@@ -10,13 +11,16 @@ import javax.persistence.*;
  */
 @Entity
 public class Car {
+
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "client")
+    @JoinColumn(name = "clientID")
     private Client client;
+
 
     @Column
     private String model;

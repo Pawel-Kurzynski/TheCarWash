@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>Employee Page</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/style.css">
     <style type="text/css">
         .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
         .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
@@ -13,6 +14,9 @@
     </style>
 </head>
 <body>
+
+<jsp:include page="myHeader.jsp"/>
+
 <h1>
     Add an Employee
 </h1>
@@ -82,7 +86,8 @@
 <h1>
     Search for Employee by name
 </h1>
-<form:form action="employee/search/${firstName}/${lastName}"  method="GET" modelAttribute="employee">
+
+<form:form action="employee/search/${firstName}/${lastName}" modelAttribute="employee">
         <table>
         <c:if test="${empty employee.firstName}">
             <tr>
@@ -143,5 +148,8 @@
         </c:forEach>
     </table>
 </c:if>
+
+<jsp:include page="myFooter.jsp"/>
+
 </body>
 </html>

@@ -23,7 +23,7 @@
 	
 	<context:component-scan base-package="com.pablo.springCRUD1" />
 
-    <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+    <beans:bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
                 destroy-method="close">
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <beans:property name="url"
@@ -33,7 +33,7 @@
     </beans:bean>
 
     <!-- Hibernate 4 SessionFactory Bean definition -->
-    <beans:bean id="hibernate4AnnotatedSessionFactory"
+    <beans:bean name="hibernate4AnnotatedSessionFactory"
                 class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
@@ -55,43 +55,43 @@
 
     <!--Models mapping-->
     <!--AddressDAO bean-->
-    <beans:bean id="addressDAO" class="com.pablo.springCRUD1.dao.AddressDAOImpl">
+    <beans:bean name="addressDAO" class="com.pablo.springCRUD1.dao.AddressDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
 
-    <beans:bean id="addressService" class="com.pablo.springCRUD1.service.AddressServiceImpl">
+    <beans:bean name="addressService" class="com.pablo.springCRUD1.service.AddressServiceImpl">
         <beans:property name="addressDAO" ref="addressDAO"/>
     </beans:bean>
 
     <!--Employee bean-->
-    <beans:bean id="employeeDAO" class="com.pablo.springCRUD1.dao.EmployeeDAOImpl">
+    <beans:bean name="employeeDAO" class="com.pablo.springCRUD1.dao.EmployeeDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
 
-    <beans:bean id="employeeService" class="com.pablo.springCRUD1.service.EmployeeServiceImpl">
+    <beans:bean name="employeeService" class="com.pablo.springCRUD1.service.EmployeeServiceImpl">
         <beans:property name="employeeDAO" ref="employeeDAO"/>
     </beans:bean>
 
     <!--Car bean-->
-    <beans:bean id="carDAO" class="com.pablo.springCRUD1.dao.CarDAOImpl">
+    <beans:bean name="carDAO" class="com.pablo.springCRUD1.dao.CarDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
 
-    <beans:bean id="carService" class="com.pablo.springCRUD1.service.CarServiceImpl">
+    <beans:bean name="carService" class="com.pablo.springCRUD1.service.CarServiceImpl">
         <beans:property name="carDAO" ref="carDAO"/>
     </beans:bean>
 
     <!--Client bean-->
-    <beans:bean id="clientDAO" class="com.pablo.springCRUD1.dao.ClientDAOImpl">
+    <beans:bean name="clientDAO" class="com.pablo.springCRUD1.dao.ClientDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
 
-    <beans:bean id="clientService" class="com.pablo.springCRUD1.service.ClientServiceImpl">
+    <beans:bean name="clientService" class="com.pablo.springCRUD1.service.ClientServiceImpl">
         <beans:property name="clientDAO" ref="clientDAO"/>
     </beans:bean>
 
     <!--Transaction Manager bean-->
-    <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <beans:bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
 

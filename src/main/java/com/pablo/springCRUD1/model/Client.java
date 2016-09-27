@@ -1,5 +1,7 @@
 package com.pablo.springCRUD1.model;
 
+import org.hibernate.annotations.ForeignKey;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,13 +23,11 @@ public class Client {
     @Column(nullable = false)
     private String lastName;
 
-    @OneToOne
-    @JoinColumn(name = "address")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "addressID")
     private Address address;
 
-    @Column
-    @OneToMany
-    @JoinColumn(name = "id")
+    @OneToMany(mappedBy = "client")
     private List<Car> cars;
 
     public int getId() {

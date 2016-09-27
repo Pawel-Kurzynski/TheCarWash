@@ -28,9 +28,9 @@ public class AddressDAOImpl implements AddressDAO {
     }
 
     @Override
-    public void updateCar(Address a) {
+    public void updateAddress(Address a) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(a);
+        session.update(a);
         logger.info("Address updated successfully, Address details: " + a);
     }
 

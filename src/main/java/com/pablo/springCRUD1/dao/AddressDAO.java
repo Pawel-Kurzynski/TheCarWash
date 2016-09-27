@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface AddressDAO {
     void addAddress(Address a);
-    void updateCar(Address a);
+    void updateAddress(Address a);
     List<Address> listAddress();
     Address getAddressById(int id);
     void removeAddress(int id);
