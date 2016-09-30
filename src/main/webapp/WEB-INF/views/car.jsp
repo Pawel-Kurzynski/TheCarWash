@@ -14,44 +14,7 @@
     <title>Car List</title>
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/style.css">
-    <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
-        }
 
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
-    </style>
 </head>
 <body>
 <jsp:include page="myHeader.jsp"/>
@@ -59,19 +22,32 @@
     Add new Car
 </h1>
 <c:url var="addAction" value="${pageContext.request.contextPath}/client/carlist/add"></c:url>
-
-<form:form action="${addAction}" modelAttribute="car">
-
+<form:form  action="${addAction}" modelAttribute="car" >
     <table>
         <tr>
             <td>
-                <form:label path="client.id">
+                <form:label path="client">
+
+                    <spring:message text="Client ID"/>
+                </form:label>
+            </td>
+            <td>
+                <c:forEach items="client" var="client">
+                    ${client = car.client}
+                    <form:input path="client" readonly="true" size="8" disabled="true"/>
+                <form:hidden path="client"/>
+                </c:forEach>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="id">
                     <spring:message text="Car ID"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="client.id" readonly="true" size="8" disabled="true"/>
-                <form:hidden path="client.id"/>
+                <form:input path="id" readonly="true" size="8" disabled="true"/>
+                <form:hidden path="id"/>
             </td>
         </tr>
         <tr>

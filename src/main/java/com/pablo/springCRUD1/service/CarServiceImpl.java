@@ -20,8 +20,8 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
-    public void addCar(Car car, Client client) {
-        this.carDAO.addCar(car, client);
+    public void addCar(Car car) {
+        this.carDAO.addCar(car);
     }
 
     @Override

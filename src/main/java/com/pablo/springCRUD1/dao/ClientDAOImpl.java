@@ -1,12 +1,14 @@
 package com.pablo.springCRUD1.dao;
 
 import com.pablo.springCRUD1.model.Address;
+import com.pablo.springCRUD1.model.Car;
 import com.pablo.springCRUD1.model.Client;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,12 +25,19 @@ public class ClientDAOImpl implements ClientDAO{
     @Override
     public void addClient(Client c) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(c);
+        List<Car> carList = new ArrayList<Car>();
+        c.setCars(carList);
         Address address = new Address(null, null, null, null, c);
         session.persist(address);
         c.setAddress(address);
+        session.persist(c);
         logger.info("Client saved successfully, Client details: " + c);
     }
+
+    public void addCar(Client client, Car car){
+
+    }
+
 
     @Override
     public void updateClient(Client c) {

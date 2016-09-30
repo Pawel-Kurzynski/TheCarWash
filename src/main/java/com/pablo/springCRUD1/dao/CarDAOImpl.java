@@ -21,9 +21,8 @@ public class CarDAOImpl implements CarDAO{
     }
 
     @Override
-    public void addCar(Car car, Client client) {
+    public void addCar(Car car) {
         Session session = this.sessionFactory.getCurrentSession();
-        car.setClient(client);
         session.persist(car);
         logger.info("Car saved successfully, Car details: " + car);
     }

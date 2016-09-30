@@ -2,6 +2,7 @@ package com.pablo.springCRUD1.controller;
 
 import com.pablo.springCRUD1.model.Address;
 import com.pablo.springCRUD1.model.Car;
+import com.pablo.springCRUD1.model.CarInfo;
 import com.pablo.springCRUD1.model.Client;
 import com.pablo.springCRUD1.service.AddressService;
 import com.pablo.springCRUD1.service.CarService;
@@ -100,10 +101,10 @@ public class ClientController {
         return "address";
     }
     @RequestMapping(value = "/carlist/add", method = RequestMethod.POST)
-    public String addCar(@ModelAttribute("car")Car car,@ModelAttribute("client")Client client){
+    public String addCar(@ModelAttribute("car")Car car){
 
         if (car.getId()==0){
-            this.carService.addCar(car, client);
+            this.carService.addCar(car);
         }
         else {
             this.carService.updateCar(car);
