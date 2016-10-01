@@ -118,7 +118,6 @@ public class ClientController {
         Client client = this.clientService.getClientById(clientID);
 
         model.addAttribute("car", new Car(client));
-//        model.addAttribute("client", this.clientService.getClientById(clientID));
         model.addAttribute("listCars", this.carService.listCars(clientID));
         return "car";
     }
