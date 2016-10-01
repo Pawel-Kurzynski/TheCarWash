@@ -38,6 +38,13 @@ public class Car {
     @NotNull
     private String plateNumber;
 
+    public Car() {
+    }
+
+    public Car(Client client) {
+        this.client = client;
+    }
+
     public int getId() {
         return id;
     }

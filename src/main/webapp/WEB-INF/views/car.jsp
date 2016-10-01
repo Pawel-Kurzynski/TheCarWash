@@ -24,28 +24,27 @@
 <c:url var="addAction" value="${pageContext.request.contextPath}/client/carlist/add"></c:url>
 <form:form  action="${addAction}" modelAttribute="car" >
     <table>
-        <tr>
-            <td>
-                <form:label path="carlist.calientid">
+        <tr>            <td>
+                <form:label path="client.id">
                     <spring:message text="Client ID"/>
                 </form:label>
             </td>
             <td>
                     <form:input path="client.id" readonly="true" size="8" disabled="true"/>
-                <form:hidden path="carlist.id"/>
+                <form:hidden path="client.id"/>
             </td>
         </tr>
-        <tr>
-            <td>
-                <form:label path="id">
-                    <spring:message text="Car ID"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="id" readonly="true" size="8" disabled="true"/>
-                <form:hidden path="id"/>
-            </td>
-        </tr>
+        <%--<tr>--%>
+            <%--<td>--%>
+                <%--<form:label path="id">--%>
+                    <%--<spring:message text="Car ID"/>--%>
+                <%--</form:label>--%>
+            <%--</td>--%>
+            <%--<td>--%>
+                <%--<form:input path="id" readonly="true" size="8" disabled="true"/>--%>
+                <%--<form:hidden path="id"/>--%>
+            <%--</td>--%>
+        <%--</tr>--%>
         <tr>
             <td>
                 <form:label path="plateNumber">
@@ -113,8 +112,8 @@
 
 
 <br>
-<c:if test="${!empty listCars}">
-    <h3>List of Cars client: ${client.firstname} ${client.lastname} </h3>
+<%--<c:if test="${!empty listCars}">--%>
+    <%--<h3>List of Cars client: ${car.client.firstname} ${car.client.lastname} </h3>--%>
     <table class="tg">
         <tr>
             <th width="80">Client ID</th>
@@ -138,7 +137,7 @@
             </tr>
         </c:forEach>
     </table>
-</c:if>
+<%--</c:if>--%>
 
 
 <jsp:include page="myFooter.jsp"/>

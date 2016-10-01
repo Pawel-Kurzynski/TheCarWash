@@ -110,14 +110,16 @@ public class ClientController {
             this.carService.updateCar(car);
         }
 
-        return "redirect:/car";
+        return "car";
     }
     @RequestMapping(value = "carlist/{id}",method = RequestMethod.GET)
     public String carList(@PathVariable("id")int clientID, Model model){
 
-        model.addAttribute("car", new Car());
+        Client client = this.clientService.getClientById(clientID);
+
+        model.addAttribute("car", new Car(client));
 //        model.addAttribute("client", this.clientService.getClientById(clientID));
-        model.addAttribute("carList", this.carService.listCars(clientID));
+        model.addAttribute("listCars", this.carService.listCars(clientID));
         return "car";
     }
 
