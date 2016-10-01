@@ -2,8 +2,6 @@ package com.pablo.springCRUD1.model;
 
 
 import com.sun.istack.NotNull;
-import org.hibernate.annotations.ForeignKey;
-
 import javax.persistence.*;
 
 /**
@@ -105,7 +103,7 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "id=" + id +
-//                ", client=" + client +
+                ", client=" + client +
                 ", model='" + model + '\'' +
                 ", width=" + width +
                 ", high=" + high +

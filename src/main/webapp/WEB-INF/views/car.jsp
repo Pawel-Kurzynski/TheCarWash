@@ -112,32 +112,33 @@
 
 
 <br>
-<%--<c:if test="${!empty listCars}">--%>
+<c:if test="${!empty listCars}">
     <%--<h3>List of Cars client: ${car.client.firstname} ${car.client.lastname} </h3>--%>
     <table class="tg">
         <tr>
-            <th width="80">Client ID</th>
-            <th width="100">First Name</th>
-            <th width="100">Last Name</th>
-            <th width="120">Address ID</th>
-            <th width="160">Car</th>
+            <th width="80">Car ID</th>
+            <th width="100">Model</th>
+            <th width="100">Width</th>
+            <th width="120">High</th>
+            <th width="160">Waxing</th>
+            <th width="160">Plate Number</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
-        <c:forEach items="${listCars}" var="cars">
+        <c:forEach items="${listCars}" var="car">
             <tr>
-                <td>${client.car.id}</td>
-                <td>${client.car.model}</td>
-                <td>${client.car.width}</td>
-                <td>${client.car.high}</td>
-                <td>${client.car.waxing}</td>
-                <td>${client.car.plateNumber}</td>
+                <td>${car.client.id}</td>
+                <td>${car.model}</td>
+                <td>${car.width}</td>
+                <td>${car.high}</td>
+                <td>${car.waxing}</td>
+                <td>${car.plateNumber}</td>
                 <td><a href="<c:url value='/client/carlist/${client.id}/edit/' />">Edit</a></td>
                 <td><a href="<c:url value='/client/carlist/${client.id}/remove' />">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
-<%--</c:if>--%>
+</c:if>
 
 
 <jsp:include page="myFooter.jsp"/>
