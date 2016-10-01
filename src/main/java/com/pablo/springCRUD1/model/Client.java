@@ -27,7 +27,7 @@ public class Client {
     @JoinColumn(name = "addressID")
     private Address address;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
     private List<Car> cars;
 
     public int getId() {
@@ -76,7 +76,7 @@ public class Client {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", cars=" + cars +
+//                ", cars=" + cars +
                 ", address=" + address +
                 '}';
     }

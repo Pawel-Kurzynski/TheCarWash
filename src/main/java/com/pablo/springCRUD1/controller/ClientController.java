@@ -116,7 +116,7 @@ public class ClientController {
     public String carList(@PathVariable("id")int clientID, Model model){
 
         model.addAttribute("car", new Car());
-        model.addAttribute("client", this.clientService.getClientById(clientID));
+//        model.addAttribute("client", this.clientService.getClientById(clientID));
         model.addAttribute("carList", this.carService.listCars(clientID));
         return "car";
     }

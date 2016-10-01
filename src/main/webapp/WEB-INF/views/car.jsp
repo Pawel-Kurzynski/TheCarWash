@@ -26,17 +26,13 @@
     <table>
         <tr>
             <td>
-                <form:label path="client">
-
+                <form:label path="carlist.calientid">
                     <spring:message text="Client ID"/>
                 </form:label>
             </td>
             <td>
-                <c:forEach items="client" var="client">
-                    ${client = car.client}
-                    <form:input path="client" readonly="true" size="8" disabled="true"/>
-                <form:hidden path="client"/>
-                </c:forEach>
+                    <form:input path="client.id" readonly="true" size="8" disabled="true"/>
+                <form:hidden path="carlist.id"/>
             </td>
         </tr>
         <tr>
