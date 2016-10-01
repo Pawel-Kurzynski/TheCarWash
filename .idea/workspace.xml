@@ -1,30 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="124f279a-8655-41c1-b42b-92b297441ddf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/pablo/springCRUD1/controller/ClientController.class" afterPath="$PROJECT_DIR$/target/classes/com/pablo/springCRUD1/controller/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/pablo/springCRUD1/model/Car.class" afterPath="$PROJECT_DIR$/target/classes/com/pablo/springCRUD1/model/Car.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/controller/ClientController.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/controller/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/controller/EmployeeController.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/controller/EmployeeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/controller/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/CarDAO.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/CarDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/CarDAOImpl.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/CarDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/ClientDAO.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/ClientDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/ClientDAOImpl.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/ClientDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/EmployeeDAO.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/EmployeeDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/EmployeeDAOImpl.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/dao/EmployeeDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/model/Car.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/model/Car.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/model/Client.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/model/Client.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/model/Employee.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/model/Employee.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/CarService.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/CarService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/CarServiceImpl.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/CarServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/ClientService.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/ClientService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/ClientServiceImpl.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/ClientServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/EmployeeService.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/EmployeeService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/EmployeeServiceImpl.class" afterPath="$PROJECT_DIR$/target/springmvc-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/pablo/springCRUD1/service/EmployeeServiceImpl.class" />
+    <list default="true" id="124f279a-8655-41c1-b42b-92b297441ddf" name="Default" comment="Problem with adding new car, not loading client.id&#10;&#10;Stage2">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pablo/springCRUD1/model/Car.java" afterPath="$PROJECT_DIR$/src/main/java/com/pablo/springCRUD1/model/Car.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/car.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/car.jsp" />
     </list>
     <ignored path="SpringMVC1.1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1317,7 +1295,7 @@
       <workItem from="1475147058180" duration="7740000" />
       <workItem from="1475220235944" duration="8674000" />
       <workItem from="1475348631118" duration="2392000" />
-      <workItem from="1475353700230" duration="3291000" />
+      <workItem from="1475353700230" duration="3417000" />
     </task>
     <task id="LOCAL-00001" summary="Beginning CRUD project with hibernate and Spring MVC support. Running on Tomcat 8.0.36.&#10; The Carwash.">
       <created>1470219682407</created>
@@ -1410,11 +1388,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475355314378</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Problem with adding new car, not loading client.id&#10;&#10;Stage2">
+      <created>1475357022761</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1475357022761</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="388248000" />
+    <option name="totallyTimeSpent" value="388374000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
