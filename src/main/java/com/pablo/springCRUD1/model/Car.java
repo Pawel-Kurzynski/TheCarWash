@@ -103,7 +103,7 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "id=" + id +
-                ", client=" + client +
+//                ", client=" + client +
                 ", model='" + model + '\'' +
                 ", width=" + width +
                 ", high=" + high +

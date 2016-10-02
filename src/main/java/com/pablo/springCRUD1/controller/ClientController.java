@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Created by Pablo on 17.08.2016.
@@ -101,16 +102,18 @@ public class ClientController {
         return "address";
     }
     @RequestMapping(value = "/carlist/add", method = RequestMethod.POST)
-    public String addCar(@ModelAttribute("car")Car car){
-
+    public String addCar(@ModelAttribute("car")Car car, RedirectAttributes rd){
         if (car.getId()==0){
             this.carService.addCar(car);
         }
         else {
             this.carService.updateCar(car);
         }
+        rd.addAttribute("clientID",car.getClient().getId());
+//        model.addAttribute("listCars", this.carService.listCars(car.getClient().getId()));
+        String url = "redirect:/client/carlist/{clientID}";
 
-        return "car";
+        return url;
     }
     @RequestMapping(value = "carlist/{id}",method = RequestMethod.GET)
     public String carList(@PathVariable("id")int clientID, Model model){
@@ -126,9 +129,8 @@ public class ClientController {
     public String editCar(@PathVariable("clientId")int clientID,
                           @PathVariable("carId")int carID,
                           Model model){
-        model.addAttribute("client", this.clientService.getClientById(clientID));
-        model.addAttribute("carList", this.carService.listCars(clientID));
-        model.addAttribute("car", this.carService.listCars(clientID).get(carID));
+        model.addAttribute("car", this.carService.getCarById(carID));
+        model.addAttribute("listCars", this.carService.listCars(clientID));
         return "car";
     }
 }
