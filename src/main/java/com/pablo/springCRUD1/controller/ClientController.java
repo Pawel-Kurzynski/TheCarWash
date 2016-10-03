@@ -47,6 +47,15 @@ public class ClientController {
         return new Client();
     }
 
+     /*
+    * Operations on customer:
+    * adding new customer
+    * getting existing one
+    * updating customer data
+    * removing existing customer
+    * JSP file - "client"
+    */
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String clientList(Model model){
         model.addAttribute("client", new Client());
@@ -80,7 +89,14 @@ public class ClientController {
         return "client";
     }
 
-    //address
+    /*
+    * The customer at start had already attached empty address,
+    * operations on customer address:
+    * editing customer address data
+    * getting address form current customer
+    * JSP file - "address"
+    */
+
     //take address matching by client id
     @RequestMapping(value = "address/{id}",method = RequestMethod.GET)
     public String addressClient(@PathVariable("id")int id, Model model){
@@ -101,20 +117,32 @@ public class ClientController {
         }
         return "address";
     }
+
+    /*
+    * Operations on car attached to a customer:
+    * adding new one
+    * getting existing
+    * editing
+    * removing
+    * JSP file - "car"
+    */
+
+    //adding and updating operation
     @RequestMapping(value = "/carlist/add", method = RequestMethod.POST)
-    public String addCar(@ModelAttribute("car")Car car, RedirectAttributes rd){
+    public String addCar(@ModelAttribute("car")Car car, RedirectAttributes ra){
         if (car.getId()==0){
             this.carService.addCar(car);
         }
         else {
             this.carService.updateCar(car);
         }
-        rd.addAttribute("clientID",car.getClient().getId());
+        ra.addAttribute("clientID",car.getClient().getId());
 //        model.addAttribute("listCars", this.carService.listCars(car.getClient().getId()));
         String url = "redirect:/client/carlist/{clientID}";
 
         return url;
     }
+    //reviewing existing clients cars
     @RequestMapping(value = "carlist/{id}",method = RequestMethod.GET)
     public String carList(@PathVariable("id")int clientID, Model model){
 
@@ -125,6 +153,7 @@ public class ClientController {
         return "car";
     }
 
+    //getting specific car for edit
     @RequestMapping(value = "carlist/{clientId}/edit/{carId}",method = RequestMethod.GET)
     public String editCar(@PathVariable("clientId")int clientID,
                           @PathVariable("carId")int carID,
@@ -132,5 +161,18 @@ public class ClientController {
         model.addAttribute("car", this.carService.getCarById(carID));
         model.addAttribute("listCars", this.carService.listCars(clientID));
         return "car";
+    }
+
+    //remove car
+    @RequestMapping("carlist/{clientId}/remove/{carId}")
+    public String removeCar(@PathVariable("carId")int carID,
+                            @PathVariable("clientId")int clientID,
+                            RedirectAttributes ra){
+        this.carService.removeCar(carID);
+
+        ra.addAttribute("clientID",clientID);
+        String url = "redirect:/client/carlist/{clientID}";
+
+        return url;
     }
 }

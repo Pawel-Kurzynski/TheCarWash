@@ -19,7 +19,7 @@
 <body>
 <jsp:include page="myHeader.jsp"/>
 
-<h2>Current client: ${car.client.firstName} ${car.client.lastName} </h2>
+<h2>Current client ${car.client.firstName} ${car.client.lastName} </h2>
 <h3>Add new Car</h3>
 
 <c:url var="addAction" value="${pageContext.request.contextPath}/client/carlist/add"></c:url>
@@ -45,7 +45,7 @@
         <td>
             <form:input path="id" readonly="true" size="8" disabled="true"/>
             <form:hidden path="id"/>
-        </td>x
+        </td>
         <tr>
             <td>
                 <form:label path="plateNumber">
@@ -118,7 +118,7 @@
     <table class="tg">
         <tr>
             <th width="70">Car ID</th>
-            <th width="100">Model</th>
+            <th width="210">Model</th>
             <th width="60">Width</th>
             <th width="60">High</th>
             <th width="70">Waxing</th>

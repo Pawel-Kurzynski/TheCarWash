@@ -30,7 +30,7 @@ public class CarDAOImpl implements CarDAO{
     @Override
     public void updateCar(Car c) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(c);
+        session.update(c);
         logger.info("Car updated successfully, Car details: " + c);
     }
 
