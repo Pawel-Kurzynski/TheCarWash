@@ -3,6 +3,7 @@ package com.pablo.springCRUD1.service;
 import com.pablo.springCRUD1.dao.CarDAO;
 import com.pablo.springCRUD1.model.Car;
 import com.pablo.springCRUD1.model.Client;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Created by Pablo on 17.08.2016.
  */
+@Service
 public class CarServiceImpl implements CarService {
 
     private CarDAO carDAO;

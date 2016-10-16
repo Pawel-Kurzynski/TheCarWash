@@ -18,8 +18,9 @@
 </head>
 <body>
 <jsp:include page="myHeader.jsp"/>
+<jsp:include page="menu.jsp"/>
 
-<h2>Current client ${car.client.firstName} ${car.client.lastName} </h2>
+<h2>Current client: ${car.client.firstName} ${car.client.lastName} </h2>
 <h3>Add new Car</h3>
 
 <c:url var="addAction" value="${pageContext.request.contextPath}/client/carlist/add"></c:url>

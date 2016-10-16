@@ -1,23 +1,52 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.io.*;
 
-/**
- * Created by Pablo on 30.09.2016.
- */
+class Main {
 
+    public static String SimpleSymbols(String str) {
 
-public class test1 {
-    public static void main(String[] args) {
+        String cheacker = "true";
 
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        char[] charAlphabet = alphabet.toCharArray();
+        str = str.toUpperCase();
+        int length = str.length();
+        String subStr = str.substring(1,length-1);
 
-        String [] a = {"cat", "dog", "cow", "horse"};
+        for (int i=0; i<length-2; i++) {
+            boolean plus = true;
 
-        List animals = Arrays.asList(a);
-
-        animals.forEach((animal) -> System.out.println(animal + "; " ));
-
-
+            for (char c:charAlphabet) {
+                if (subStr.charAt(i) == c){
+                    if (str.charAt(i)== '+'&& str.charAt(i+2) == '+'){
+                        plus = true;
+                    }else {
+                        plus = false;
+                        break;
+                    }
+                }
+            }
+            if (!plus){
+                cheacker = "false";
+                break;
+            }
+        }
+        return cheacker;
     }
+
+    public static void main (String[] args) {
+        // keep this function call here
+        Scanner s = new Scanner(System.in);
+        System.out.print(SimpleSymbols(s.nextLine()));
+    }
+
 }
+
+
+
+
+
+
+
+
+  

@@ -19,12 +19,8 @@ public class Employee {
     private int id;
 
     @NotNull
-    @Column(name = "lastName")
-    private String firstName;
-
-    @NotNull
     @Column(name = "firstName")
-    private String lastName;
+    private String name;
 
     @Column(length =20)
     private double salary;
@@ -39,20 +35,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getSalary() {
@@ -71,14 +59,13 @@ public class Employee {
 //        this.address = address;
 //    }
 
+
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
                 ", salary=" + salary +
-//                ", address=" + address +
                 '}';
     }
 }

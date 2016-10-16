@@ -16,6 +16,7 @@
 </head>
 <body>
 <jsp:include page="myHeader.jsp"/>
+<jsp:include page="menu.jsp"/>
 
 <h1>
     Add a new Client
