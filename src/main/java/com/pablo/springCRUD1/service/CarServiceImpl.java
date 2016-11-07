@@ -1,8 +1,9 @@
 package com.pablo.springCRUD1.service;
 
 import com.pablo.springCRUD1.dao.CarDAO;
-import com.pablo.springCRUD1.model.Car;
-import com.pablo.springCRUD1.model.Client;
+import com.pablo.springCRUD1.Entity.Car;
+import com.pablo.springCRUD1.model.CarInfo;
+import com.pablo.springCRUD1.service.washLogic.CostCounter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class CarServiceImpl implements CarService {
 
     private CarDAO carDAO;
+    private CostCounter costCounter = new CostCounter();
 
     public void setCarDAO(CarDAO carDAO) {
         this.carDAO = carDAO;
@@ -35,12 +37,14 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional
     public List<Car> listCars(int clientID) {
+
         return this.carDAO.listCars(clientID);
     }
 
     @Override
     @Transactional
-    public Car getCarById(int id) {
+    public CarInfo getCarById(int id) {
+
         return carDAO.getCarById(id);
     }
 

@@ -1,7 +1,7 @@
 package com.pablo.springCRUD1.service;
 
-import com.pablo.springCRUD1.model.Car;
-import com.pablo.springCRUD1.model.Client;
+import com.pablo.springCRUD1.Entity.Car;
+import com.pablo.springCRUD1.model.CarInfo;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public interface CarService {
     void addCar(Car car);
     void updateCar(Car car);
-    List<Car> listCars(int clientID);
-    Car getCarById(int id);
+    List<CarInfo> listCars(int clientID);
+    CarInfo getCarById(int id);
     void removeCar(int id);
 }

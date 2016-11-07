@@ -1,13 +1,16 @@
 package com.pablo.springCRUD1.controller;
 
-import com.pablo.springCRUD1.model.Address;
-import com.pablo.springCRUD1.model.Car;
-import com.pablo.springCRUD1.model.CarInfo;
-import com.pablo.springCRUD1.model.Client;
+import com.pablo.springCRUD1.Entity.Address;
+import com.pablo.springCRUD1.Entity.Car;
+import com.pablo.springCRUD1.Entity.Client;
 import com.pablo.springCRUD1.service.AddressService;
 import com.pablo.springCRUD1.service.CarService;
 import com.pablo.springCRUD1.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,9 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by Pablo on 17.08.2016.
  */
+@Secured({"ROLE_EMPLOYEE", "ROLE_MANAGER"})
 @Controller
 @RequestMapping(value = "client")
 public class ClientController {
@@ -45,6 +52,17 @@ public class ClientController {
     @ModelAttribute("client")
     public Client loadEmptyModelBean(){
         return new Client();
+    }
+
+
+    @RequestMapping(value = "logout")
+    public String logout (HttpServletRequest request, HttpServletResponse response){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null){
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/";
     }
 
      /*

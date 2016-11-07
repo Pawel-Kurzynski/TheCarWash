@@ -1,6 +1,4 @@
-package com.pablo.springCRUD1.model;
-
-import org.hibernate.annotations.ForeignKey;
+package com.pablo.springCRUD1.Entity;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,9 +1,7 @@
 package com.pablo.springCRUD1.service;
 
 import com.pablo.springCRUD1.dao.EmployeeDAO;
-import com.pablo.springCRUD1.dao.EmployeeDAOImpl;
-import com.pablo.springCRUD1.model.Employee;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.pablo.springCRUD1.Entity.Employee;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

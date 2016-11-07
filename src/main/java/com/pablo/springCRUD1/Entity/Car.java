@@ -1,4 +1,4 @@
-package com.pablo.springCRUD1.model;
+package com.pablo.springCRUD1.Entity;
 
 
 import com.sun.istack.NotNull;
@@ -27,7 +27,7 @@ public class Car {
     private double width;
 
     @Column
-    private double high;
+    private double height;
 
     @Column
     private boolean waxing = false;
@@ -68,12 +68,12 @@ public class Car {
         this.width = width;
     }
 
-    public double getHigh() {
-        return high;
+    public double getHeight() {
+        return height;
     }
 
-    public void setHigh(double high) {
-        this.high = high;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     public boolean isWaxing() {
@@ -107,7 +107,7 @@ public class Car {
 //                ", client=" + client +
                 ", model='" + model + '\'' +
                 ", width=" + width +
-                ", high=" + high +
+                ", height=" + height +
                 ", waxing=" + waxing +
                 ", plateNumber='" + plateNumber + '\'' +
                 '}';

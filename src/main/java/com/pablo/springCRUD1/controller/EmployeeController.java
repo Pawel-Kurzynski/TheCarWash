@@ -1,16 +1,24 @@
 package com.pablo.springCRUD1.controller;
 
-import com.pablo.springCRUD1.model.Employee;
+import com.pablo.springCRUD1.Entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.pablo.springCRUD1.service.EmployeeService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by Pablo on 03.08.2016.
  */
+@Secured("ROLE_MANAGER")
 @Controller
 @RequestMapping("employee")
 public class EmployeeController {
@@ -22,6 +30,16 @@ public class EmployeeController {
     public void setEmployeeService(EmployeeService employeeService) {
 
         this.employeeService = employeeService;
+    }
+
+    @RequestMapping(value = "logout")
+    public String logout (HttpServletRequest request, HttpServletResponse response){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null){
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/client";
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)

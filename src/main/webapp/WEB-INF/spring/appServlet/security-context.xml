@@ -13,7 +13,8 @@
                     authentication-failure-url="/login?error=1"
                     username-parameter="userName"
                     password-parameter="password" />
-        <logout logout-success-url="/home" /> <!-- setting the logout redirect -->
+        <logout logout-url="logout"
+                logout-success-url="/home" /> <!-- setting the logout redirect -->
         <csrf /> <!-- turn on the csrf security-->
     </http>
 

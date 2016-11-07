@@ -1,6 +1,6 @@
 package com.pablo.springCRUD1.dao;
 
-import com.pablo.springCRUD1.model.Employee;
+import com.pablo.springCRUD1.Entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;

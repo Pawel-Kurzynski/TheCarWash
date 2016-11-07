@@ -1,6 +1,6 @@
 package com.pablo.springCRUD1.dao;
 
-import com.pablo.springCRUD1.model.Employee;
+import com.pablo.springCRUD1.Entity.Employee;
 
 import java.util.List;
 

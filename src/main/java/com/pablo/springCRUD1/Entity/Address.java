@@ -1,4 +1,4 @@
-package com.pablo.springCRUD1.model;
+package com.pablo.springCRUD1.Entity;
 
 import javax.persistence.*;
 

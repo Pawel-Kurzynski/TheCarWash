@@ -23,6 +23,10 @@
 <h2>Current client: ${car.client.firstName} ${car.client.lastName} </h2>
 <h3>Add new Car</h3>
 
+<h4>Attention! Our Car Wash accept only cars with limited size.</h4>
+    width<2.5 meters
+    &nbsp;|&nbsp;
+    height<2.3 meters
 <c:url var="addAction" value="${pageContext.request.contextPath}/client/carlist/add"></c:url>
 
 <form:form  action="${addAction}" modelAttribute="car" >
@@ -79,12 +83,12 @@
         </tr>
         <tr>
             <td>
-                <form:label path="high">
+                <form:label path="height">
                     <spring:message text="High"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="high"/>
+                <form:input path="height"/>
             </td>
         </tr>
         <tr>
@@ -132,7 +136,7 @@
                 <td>${car.client.id}</td>
                 <td>${car.model}</td>
                 <td>${car.width}</td>
-                <td>${car.high}</td>
+                <td>${car.height}</td>
                 <td>${car.waxing}</td>
                 <td>${car.plateNumber}</td>
                 <td><a href="<c:url value='/client/carlist/${car.client.id}/edit/${car.id}' />">Edit</a></td>

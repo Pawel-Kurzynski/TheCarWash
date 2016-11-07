@@ -42,10 +42,10 @@
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
             <beans:list>
-                <beans:value>com.pablo.springCRUD1.model.Client</beans:value>
-                <beans:value>com.pablo.springCRUD1.model.Address</beans:value>
-                <beans:value>com.pablo.springCRUD1.model.Car</beans:value>
-                <beans:value>com.pablo.springCRUD1.model.Employee</beans:value>
+                <beans:value>com.pablo.springCRUD1.Entity.Client</beans:value>
+                <beans:value>com.pablo.springCRUD1.Entity.Address</beans:value>
+                <beans:value>com.pablo.springCRUD1.Entity.Car</beans:value>
+                <beans:value>com.pablo.springCRUD1.Entity.Employee</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -83,6 +83,7 @@
 
     <beans:bean name="carService" class="com.pablo.springCRUD1.service.CarServiceImpl">
         <beans:property name="carDAO" ref="carDAO"/>
+        <beans:property name="carInfo" ref="carInfo"/>
     </beans:bean>
 
     <!--Client bean-->

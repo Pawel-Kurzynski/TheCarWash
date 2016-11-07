@@ -12,9 +12,19 @@
 
     <div class="site-name">Car Wash Application</div>
     <div class="header-bar">
-        <%--<c:if test="${pageContext.request.Employee.firstName == null}">--%>
-            <%--<a href="${pageContext.request.contextPath}/login">Login</a>--%>
-        <%--</c:if>--%>
+        <c:if test="${pageContext.request.userPrincipal.name != null}">
+            Hello
+            <a href="${pageContext.request.contextPath}/accountInfo">
+                    ${pageContext.request.userPrincipal.name} </a>
+            &nbsp;|&nbsp;
+            <a href="${pageContext.request.contextPath}client/logout">Logout</a>
+
+        </c:if>
+
+        <c:if test="${pageContext.request.userPrincipal.name == null}">
+
+            <a href="${pageContext.request.contextPath}/login">Login</a>
+        </c:if>
     </div>
 </div>
 
