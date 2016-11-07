@@ -7,6 +7,7 @@ import com.pablo.springCRUD1.service.washLogic.CostCounter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,16 +37,22 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
-    public List<Car> listCars(int clientID) {
+    public List<CarInfo> listCars(int clientID) {
 
-        return this.carDAO.listCars(clientID);
+        List<CarInfo> carInfoList = new ArrayList<CarInfo>();
+
+        List<Car> cars = this.carDAO.listCars(clientID);
+        for(Car c: cars){
+            carInfoList.add(new CarInfo(c));
+        }
+
+        return carInfoList;
     }
 
     @Override
     @Transactional
     public CarInfo getCarById(int id) {
-
-        return carDAO.getCarById(id);
+        return new CarInfo(this.carDAO.getCarById(id));
     }
 
     @Override

@@ -1,52 +1,26 @@
 package com.pablo.springCRUD1.model;
 
 import com.pablo.springCRUD1.Entity.Car;
+import com.pablo.springCRUD1.service.washLogic.CostCounter;
+
 /**
  * Created by Pablo on 29.09.2016.
  */
 public class CarInfo {
 
-    private int clientID;
-    private String model;
-    private double width;
-    private double height;
-    private boolean waxing = false;
-    private String plateNumber;
+    private Car car;
     private double cost;
     private boolean complete;
     private String station;
 
     public CarInfo(Car car) {
-        this.clientID = car.getClient().getId();
-        this.model = car.getModel();
-        this.width = car.getWidth();
-        this.height = car.getHeight();
-        this.waxing = car.isWaxing();
-        this.plateNumber = car.getPlateNumber();
+        CostCounter counter = new CostCounter();
+        this.car = car;
+        this.cost = counter.getCarCost(car);
+        this.station = counter.getStation(car);
     }
-
-    public int getClientID() {
-        return clientID;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public boolean isWaxing() {
-        return waxing;
-    }
-
-    public String getPlateNumber() {
-        return plateNumber;
+    public Car getCar() {
+        return car;
     }
 
     public double getCost() {

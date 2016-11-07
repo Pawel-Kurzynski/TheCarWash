@@ -9,7 +9,12 @@ import java.util.List;
  */
 public class CostCounter {
 
-    private SizeChecker  sizeChecker;
+    private SizeChecker  sizeChecker = new SizeCheckerImpl();
+
+    public String getStation(Car car){
+
+        return sizeChecker.goToStation(car).name();
+    }
 
     public  double getCarCost(Car car){
         return sizeChecker.goToStation(car).washingPrize();

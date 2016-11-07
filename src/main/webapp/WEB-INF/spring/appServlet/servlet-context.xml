@@ -83,7 +83,6 @@
 
     <beans:bean name="carService" class="com.pablo.springCRUD1.service.CarServiceImpl">
         <beans:property name="carDAO" ref="carDAO"/>
-        <beans:property name="carInfo" ref="carInfo"/>
     </beans:bean>
 
     <!--Client bean-->

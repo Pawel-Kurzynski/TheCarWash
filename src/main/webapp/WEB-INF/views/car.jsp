@@ -128,19 +128,23 @@
             <th width="60">High</th>
             <th width="70">Waxing</th>
             <th width="100">Plate Number</th>
+            <th width="60">Cost</th>
+            <th width="80">Station</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
-        <c:forEach items="${listCars}" var="car">
+        <c:forEach items="${listCars}" var="carInfo">
             <tr>
-                <td>${car.client.id}</td>
-                <td>${car.model}</td>
-                <td>${car.width}</td>
-                <td>${car.height}</td>
-                <td>${car.waxing}</td>
-                <td>${car.plateNumber}</td>
-                <td><a href="<c:url value='/client/carlist/${car.client.id}/edit/${car.id}' />">Edit</a></td>
-                <td><a href="<c:url value='/client/carlist/${car.client.id}/remove/${car.id}' />">Delete</a></td>
+                <td>${carInfo.car.client.id}</td>
+                <td>${carInfo.car.model}</td>
+                <td>${carInfo.car.width}</td>
+                <td>${carInfo.car.height}</td>
+                <td>${carInfo.car.waxing}</td>
+                <td>${carInfo.car.plateNumber}</td>
+                <td>${carInfo.cost}</td>
+                <td>${carInfo.station}</td>
+                <td><a href="<c:url value='/client/carlist/${carInfo.car.client.id}/edit/${car.id}' />">Edit</a></td>
+                <td><a href="<c:url value='/client/carlist/${carInfo.car.client.id}/remove/${car.id}' />">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
