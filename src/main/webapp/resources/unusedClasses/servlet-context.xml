@@ -25,7 +25,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<context:component-scan base-package="com.pablo.springCRUD1" />
+        <context:component-scan base-package="com.pablo.springCRUD1" />
 
     <beans:bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
                 destroy-method="close">
@@ -52,9 +52,13 @@
             <beans:props>
                 <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</beans:prop>
                 <beans:prop key="hibernate.show_sql">true</beans:prop>
-                <beans:prop key="hibernate.ddl-auto=create-drop">true</beans:prop>
+                <!--<beans:prop key="hibernate.ddl-auto=create-drop">true</beans:prop>-->
             </beans:props>
         </beans:property>
+    </beans:bean>
+
+    <beans:bean name="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <beans:property name="basenames" value="message.validator"/>
     </beans:bean>
 
     <!--Models mapping-->
